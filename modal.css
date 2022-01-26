@@ -484,7 +484,6 @@ input[data-error]::after {
   margin-top: 57px;
   padding: 0;
   font-size: 2rem;
-  text-overflow: clip;
 }
 .btn-signup {
   font-size: 1.3rem;
