@@ -42,7 +42,7 @@ document.getElementById("closethanks").addEventListener("click", function(closeT
 });
 
 
-// Function Message erreur
+// Fonction Message erreur
 function showErrorMessage(champForm, formRempli, message) {
 	champForm.target.setCustomValidity("");
 	if (!champForm.target.validity.valid && champForm.target.value.length == 0) {
