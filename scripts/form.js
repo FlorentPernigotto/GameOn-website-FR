@@ -122,10 +122,11 @@ function checkTermsAndConditions() {
 /** Arrow function for check if the form input are all valids */
 const isFormValid = () => checkFirstName() && checkLastName() && checkEmail() && checkAge() && checkTournamentCount() && checkTournamentCity() && checkTermsAndConditions()
 //Fonction pour ouvrir les remerciements de l'inscription
-const thankDisplay = document.getElementById('thank')
-function thankDisplay(displayStyle) {
-  thankDisplay.style.display = displayStyle;
-}
+const thank = document.getElementById('thank');
+
+  function thankDisplay(displayStyle) {
+    thank.style.display = displayStyle
+  }
 
 /**  Event Listeners for submit button */
 $registrationForm.addEventListener('submit', function(event) {
@@ -135,7 +136,7 @@ $registrationForm.addEventListener('submit', function(event) {
     // untoggle the modal
     modalDisplay('none');
     // Ouvre la notification remerciant de l'inscription
-    ('block')
+    thankDisplay('block');
     // reset the content
     $registrationForm.reset();
   } 

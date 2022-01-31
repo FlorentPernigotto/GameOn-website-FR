@@ -347,7 +347,7 @@ display: none;
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
-  height: 720px;
+  height: 740px;
   animation-name: thankopen;
   animation-duration: var(--thank-duration);
   background: #232323;
@@ -521,6 +521,22 @@ input {
 .btn-submit {
   margin-top: 0.5rem;
   width: 100%;
+}
+.text-thank {
+
+  text-align: center;
+  color: white;
+  position: relative;
+  top: 300px;
+
+}
+
+.button-thank{
+  width: 40%;
+  position: relative;
+  top: 80%;
+  left: 30%;
+  
 }
 
 /* custom select styles */
