@@ -134,14 +134,10 @@ $registrationForm.addEventListener('submit', function(event) {
 // if all booleans are true
   if (isFormValid()) {
     // untoggle the modal
-    modalDisplay('none');
-    // Ouvre la notification remerciant de l'inscription
+    modalDisplay('none') & thankDisplay('block');
     // reset the content
     $registrationForm.reset();
   } 
-  if (isFormValid()) {
-    
-    thankDisplay('bloc');
-  }
 })
+
 
