@@ -209,6 +209,14 @@ img {
     margin: 0.5rem 0rem;
     width: 2rem;
   }
+
+  .hero-content {
+    width: 100%;
+  }
+  
+  .hero-img img {
+    width: 95%;
+  }
 }
 
 @media screen and (max-width: 540px) and (max-width: 768px) {
