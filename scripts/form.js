@@ -136,9 +136,12 @@ $registrationForm.addEventListener('submit', function(event) {
     // untoggle the modal
     modalDisplay('none');
     // Ouvre la notification remerciant de l'inscription
-    thankDisplay('block');
     // reset the content
     $registrationForm.reset();
   } 
+  if (isFormValid()) {
+    
+    thankDisplay('bloc');
+  }
 })
 
