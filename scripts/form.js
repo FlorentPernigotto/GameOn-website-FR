@@ -1,142 +1,146 @@
 // DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const modal = document.getElementById('modal');
-const $registrationForm = document.querySelector('.registration-form');
+const modalbg = document.querySelector(".bground"); // crée une variable constante pour l'élément "class"
+const modalBtn = document.querySelectorAll(".modal-btn"); // crée une variable constante pour l'élément "class"
+const formData = document.querySelectorAll(".formData"); // crée une variable constante pour l'élément "class"
+const modal = document.getElementById('modal'); // crée une variable constante pour l'élément "ID"
+const $registrationForm = document.querySelector('.registration-form'); // crée une variable constante pour l'élément "class"
 
 
 
-// Fonction pour ouvrir et fermer la modal
-function modalDisplay(displayStyle) {
-  modal.style.display = displayStyle 
+// crée la fonction qui permet d'afficher et de fermer le modal en modifiant son style
+function modalDisplay(displayStyle) { 
+  modal.style.display = displayStyle  
 }
 
 
-// Dedicated functions to check the form validity
+// Création des fonctions de vérification du formulaires pour chaqu'une des inputs obligatoires
 
-/** Check if the first name lenght is equal or upper than 2 and return a boolean */
+// crée une fonction qui vérifie si la valeur entrée dans l'input pour le prénom est supérieur a 2 caractères
 function checkFirstName() {
-  const firstNameInput = document.getElementById('first').value;
-  const $firstErrorMsg = document.querySelector(".firstErrorMsg");
-  const isFirstNameValid = firstNameInput.trim().length >= 2;
+  const firstNameInput = document.getElementById('first').value; // crée une constante qui récupère la valeur entrée par le client dans l'input prénom
+  const $firstErrorMsg = document.querySelector(".firstErrorMsg"); // crée une constante qui selectionne le message d'erreur
+  const isFirstNameValid = firstNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input prénom
 
-  if (isFirstNameValid) {
-    $firstErrorMsg.classList.add('hidden');
-  } else {
-    $firstErrorMsg.classList.remove('hidden');
+  if (isFirstNameValid) { // Appelle la constante de validation du prénom dans une booléene
+    $firstErrorMsg.classList.add('hidden'); // "Si" elle est vrai alors le message d'erreur reste caché
+  } else { // "Sinon" 
+    $firstErrorMsg.classList.remove('hidden'); // "Si" elle est fausse alors le message d'erreur s'affiche
   }
-  return isFirstNameValid;
+  return isFirstNameValid; // Enregistre la réponse a cette fonction dans la constante
 }
 
-/** Check if the last name lenght is equal or upper than 2 and return a boolean */
-function checkLastName() {
-  const lastNameInput = document.getElementById('last').value;
-  const $lastErrorMsg = document.querySelector('.lastErrorMsg');
-  const isLastNameValid = lastNameInput.trim().length >= 2;
+function checkLastName() {// crée une fonction qui vérifie si la valeur entrée dans l'input pour le nom est supérieur a 2 caractères
+  const lastNameInput = document.getElementById('last').value; // crée une constante qui récupère la valeur entrée par le client dans l'input nom
+  const $lastErrorMsg = document.querySelector('.lastErrorMsg'); // crée une constante qui selectionne le message d'erreur
+  const isLastNameValid = lastNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input nom
 
-  if (isLastNameValid) {
-    $lastErrorMsg.classList.add('hidden');
-  } else {
-    $lastErrorMsg.classList.remove('hidden');
+  if (isLastNameValid) { // Appelle la constante de validation du nom dans un booléen
+    $lastErrorMsg.classList.add('hidden'); // "Si" elle est vrai alors le message d'erreur reste caché
+  } else { // "Sinon" 
+    $lastErrorMsg.classList.remove('hidden'); // "Si" elle est fausse alors le message d'erreur s'affiche
   }
-  return isLastNameValid;
+  return isLastNameValid; // Enregistre la réponse à cette fonction
 }
 
-/** Check if the email format is valid and match to the regex and return a boolean */
-function checkEmail() {
-  const emailInput = document.getElementById('email').value;
-  const regExMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  const $emailErrorMsg = document.querySelector('.emailErrorMsg');
-  const isEmailValid = regExMail.test(emailInput)
+// Vérifie si le format de l'email est valide et correspond au regEx et renvoi un booléen
+function checkEmail() { // crée la fonction qui vérifie si la valeur entrée dans l'input pour l'email est valide
+  const emailInput = document.getElementById('email').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
+  const regExMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; // crée un regEx pour définir le format OBLIGATOIRE de l'entrée (ex: monnom@mondomaine.xyz)
+  const $emailErrorMsg = document.querySelector('.emailErrorMsg'); // crée une constante qui selectionne le message d'erreur
+  const isEmailValid = regExMail.test(emailInput) // crée une constante qui vérifie le format de l'email inscrit dans l'input email
 
-  if (isEmailValid) {
-    $emailErrorMsg.classList.add('hidden')
-  } else {
-    $emailErrorMsg.classList.remove('hidden')
+  if (isEmailValid) { // Appelle la constante de validation de l'email dans un booléen
+    $emailErrorMsg.classList.add('hidden') // "Si" l'email est valide alors cache le message d'erreur
+  } else { // "Sinon"
+    $emailErrorMsg.classList.remove('hidden') // "Si" l'email n'est pas valide alors affiche le message d'erreur
   }
-  return isEmailValid
+  return isEmailValid // Enregistre la réponse à cette fonction
 }
 
-/** Check if the age is filled and return a boolean */
-function checkAge() {
-  const ageInput = document.getElementById('birthdate').value;
-  const regExAge = /(19\d\d|20[0-3])(-\d\d){2}/;
-  const $ageErrorMsg = document.querySelector('.ageErrorMsg');
-  const isAgeValid = regExAge.test(ageInput);
+// Vérifie l'age entrée dans l'input et renvoi un boolèen
+function checkAge() { // crée la fonction qui vérifie l'age entrée dans l'input
+  const ageInput = document.getElementById('birthdate').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
+  const regExAge = /(19\d\d|20[0-3])(-\d\d){2}/; // crée une regEx pour définir le format d'entrée de l'age par la date de naissance (DD/MM/AAAA)
+  const $ageErrorMsg = document.querySelector('.ageErrorMsg'); // crée une constante qui selectionne le message d'erreur
+  const isAgeValid = regExAge.test(ageInput); // crée une constante qui vérifie si l'age entrée dans l'input est valide
 
-  if (isAgeValid) {
-    $ageErrorMsg.classList.add('hidden');
-  } else {
-    $ageErrorMsg.classList.remove('hidden')
+  if (isAgeValid) { // Appelle la constante de validation de l'age dans un boolèen
+    $ageErrorMsg.classList.add('hidden'); // "Si" l'age est valide alors cache le message
+  } else { // "Sinon"
+    $ageErrorMsg.classList.remove('hidden') //"Si" l'age n'est pas valide alors affiche le message
   }
-  return isAgeValid
+  return isAgeValid // Enregistre la réponse à cette fonction
 }
 
-/** Check if the tournament count is filled and return a boolean */
-function checkTournamentCount() {
-  const tournamentInput = document.getElementById('quantity').value;
-  const $tournamentErrorMsg = document.querySelector('.tournamentErrorMsg');
-  const isTournamentNumberIsValid = tournamentInput.length > 0;
+// Vérifie si la valeur entrée dans l'input et retourne un booléen
+function checkTournamentCount() { // crée la fonction qui vérifie si la valeur entrée en input
+  const tournamentInput = document.getElementById('quantity').value; // créer une constante qui récupère la valeur entrée dans l'input
+  const $tournamentErrorMsg = document.querySelector('.tournamentErrorMsg'); // crée une constante qui selectionne le message d'erreur
+  const isTournamentNumberIsValid = tournamentInput.length > 0; //créer une constante qui vérifie si la valeur entrée en input est supérieure a "0" 
 
-  if (isTournamentNumberIsValid) {
-    $tournamentErrorMsg.classList.add('hidden');
-  } else {
-    $tournamentErrorMsg.classList.remove('hidden')
+  if (isTournamentNumberIsValid) { // Appelle la constante de validation du nombre de tournois
+    $tournamentErrorMsg.classList.add('hidden'); // "Si" la valeur entrée est valide alors n'affiche pas le message
+  } else { // "Sinon"
+    $tournamentErrorMsg.classList.remove('hidden') // "Si" la valeur entrée n'est pas valide alors affiche le message
   }
-  return isTournamentNumberIsValid
+  return isTournamentNumberIsValid // Enregistre la résultat a cette fonction
 }
 
-/** Check if one radio button is checked and return a boolean */
-function checkTournamentCity() {
-  const $cityRadios = document.querySelectorAll('#city-radios .checkbox-input');
-  const $tournamentCityErrorMsg = document.querySelector('.tournamentCityErrorMsg');
-  let isTournamentCityNumberValid = false;
+// Vérifie si un boutton radio a bien été sélectionné et renvoie la réponse dans un boolèen
+function checkTournamentCity() { // crée une fonction qui vérifie si la valeur entrée en input
+  const $cityRadios = document.querySelectorAll('#city-radios .checkbox-input'); // crée une constante qui récupère les check-box sélectionné
+  const $tournamentCityErrorMsg = document.querySelector('.tournamentCityErrorMsg'); // crée une constante qui récupère le message d'erreur
+  let isTournamentCityNumberValid = false; // crée une variable muable en fonction de la boolèen suivante
 
-  for (let i = 0; i < $cityRadios.length; i++) {
-    if ($cityRadios[i].checked) {
-      $tournamentCityErrorMsg.classList.add('hidden');
-      isTournamentCityNumberValid = true;
+  for (let i = 0; i < $cityRadios.length; i++) { /** l'instruction "for (pour)" déclare une variable " i = 0 ".
+                                                      La variable constante $cityRadios doit etre entre "i" et "i++" */
+    if ($cityRadios[i].checked) { // "Si" une ville est sélectionnée dans une radio
+      $tournamentCityErrorMsg.classList.add('hidden'); // n'affiche pas le message d'erreur
+      isTournamentCityNumberValid = true;// modifie la valeur dans la variable "isTournamentCityNumberValid"
       break
-    } else {
-      $tournamentCityErrorMsg.classList.remove('hidden');
+    } else { // "Sinon"
+      $tournamentCityErrorMsg.classList.remove('hidden'); // n'affiche pas le message
     }
   }
-  return isTournamentCityNumberValid
+  return isTournamentCityNumberValid // Enregistre le résultats à cette fonction
 }
 
-/** Check if the user has checked the terms and conditions and return a boolean */
-function checkTermsAndConditions() {
-  const terms = document.querySelector('#acceptConditions')
-  const $termsCheckMsg = document.querySelector('.termsCheckMsg');
-  const termsAreChecked = terms.checked;
+// vérifie si l'utilisateur a bien accepté les conditions d'utilisation 
+function checkTermsAndConditions() { // crée la fonction pour vérifier si les CGU on été acceptés
+  const terms = document.querySelector('#acceptConditions')  // crée une variable constante qui récupère la valeur entrée dans l'id
+  const $termsCheckMsg = document.querySelector('.termsCheckMsg'); // crée une variable constante pour l'élément "class"
+  const termsAreChecked = terms.checked; // crée une variable pour vérifier si la radio "terms" est bien "check"
 
-  if (termsAreChecked) {
-    $termsCheckMsg.classList.add('hidden');
-  } else {
-    $termsCheckMsg.classList.remove('hidden');
+  if (termsAreChecked) { // "Si" la radio "terms" est bien check
+    $termsCheckMsg.classList.add('hidden'); // n'affiche pas le message d'erreur
+  } else { // " Sinon "
+    $termsCheckMsg.classList.remove('hidden'); // affiche le message le message d'erreur
   }
-  return termsAreChecked
+  return termsAreChecked // Enregistre le resultat dans la variable "termsAreChecked"
 }
 
-/** Arrow function for check if the form input are all valids */
+// Crée une variable "isFormValid" qui récupère le résultat de toutes les fonctions
 const isFormValid = () => checkFirstName() && checkLastName() && checkEmail() && checkAge() && checkTournamentCount() && checkTournamentCity() && checkTermsAndConditions()
-//Fonction pour ouvrir les remerciements de l'inscription
-const thank = document.getElementById('thank');
 
+//Fonction pour ouvrir les remerciements de l'inscription
+const thank = document.getElementById('thank'); // créer une variable constante pour l'élément "ID"
+
+  // crée la fonction qui modifiera le style de la variable "thank"
   function thankDisplay(displayStyle) {
     thank.style.display = displayStyle
   }
 
-/**  Event Listeners for submit button */
+/**  Liste d'évènement 'submit' */
 $registrationForm.addEventListener('submit', function(event) {
   event.preventDefault()
-// if all booleans are true
+// si la valeur de la booléen est vrai
   if (isFormValid()) {
-    // untoggle the modal
+    // lance la fonction modalDisplay ligne 10 et modifie le style sur "none" 
+    // ET 
+    // lance la fonction thankDisplay ligne 127 et modifie le style sur "none"
     modalDisplay('none') & thankDisplay('block');
-    // reset the content
-    $registrationForm.reset();
+    
+    $registrationForm.reset();// reset le contenu
   } 
 })
 
