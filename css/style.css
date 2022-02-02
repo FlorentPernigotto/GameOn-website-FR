@@ -157,7 +157,7 @@ img {
 
 .header-logo {
   float: left;
-  padding: 0.7rem;
+  padding-left: 0.7rem;
 }
 
 .header-logo img {
@@ -166,6 +166,7 @@ img {
 
 .main-navbar {
   float: right;
+  margin-right: 50px;
 }
 
 .topnav a {
@@ -196,7 +197,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 800px) {
   .topnav a {
     display: none;
   }
@@ -210,16 +211,54 @@ img {
     width: 2rem;
   }
 
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    box-shadow: none;
+  }
+
   .hero-content {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    color: #000;
+    padding: 0;
+    width: 97%;
   }
   
   .hero-img img {
     width: 95%;
   }
-}
+  .hero-content::after {
+    content: unset;
+  }
+  .hero-content > .btn-signup {
+    display: none;
+  }
+  .hero-section > .btn-signup {
+    display: block;
+    width: 40%;
+    align-self: center;
+    text-align: center;
+    padding: 15px;
+  }
+  .hero-headline {
+    font-size: 3rem;
+    white-space: normal;
+    overflow-wrap: break-word;
+    width: 100%;
+  }
+  .hero-text {
+    overflow-wrap: normal;
+    font-size: 1rem;
+  }
+  .hero-img img {
+    border-radius: 10px;
+    margin-top: 40px;
+    width: 97%;
+  }
 
-@media screen and (max-width: 540px) and (max-width: 768px) {
   .topnav.responsive {
     position: relative;
   }
@@ -243,7 +282,8 @@ img {
   }
 }
 
-@media screen and (max-width: 540px) and (max-width: 800px) {
+/* affichage du contenu pour format smatphone et tablette */
+@media screen and (min-width: 540px) and (max-width: 800px) {
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -257,6 +297,8 @@ img {
     background: #fff;
     color: #000;
     padding: 0;
+    width: 100%;
+    text-align: center;
   }
   .hero-content::after {
     content: unset;
@@ -265,21 +307,22 @@ img {
     display: none;
   }
   .hero-headline {
-    font-size: 3rem;
+    font-size: 4rem;
     white-space: normal;
     overflow-wrap: break-word;
+    width: 90%;
   }
   .hero-text  {
     overflow-wrap: normal;
     font-size: 1rem;
   }
-  .hero-img {
+  .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    width: 97%;
   }
   .copyrights {
     margin-top: 50px;
-    text-align: center;
   }
 }
 
