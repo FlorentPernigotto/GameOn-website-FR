@@ -31,8 +31,9 @@ function checkFirstName() {
 
 function checkLastName() {// crée une fonction qui vérifie si la valeur entrée dans l'input pour le nom est supérieur a 2 caractères
   const lastNameInput = document.getElementById('last').value; // crée une constante qui récupère la valeur entrée par le client dans l'input nom
+  const regExLastName = /^[a-zA-Z\- ]+$/;
   const $lastErrorMsg = document.querySelector('.lastErrorMsg'); // crée une constante qui selectionne le message d'erreur
-  const isLastNameValid = lastNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input nom
+  const isLastNameValid = regExLastName.test(lastNameInput) & lastNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input nom
 
   if (isLastNameValid) { // Appelle la constante de validation du nom dans un booléen
     $lastErrorMsg.classList.add('hidden'); // "Si" elle est vrai alors le message d'erreur reste caché
@@ -45,7 +46,7 @@ function checkLastName() {// crée une fonction qui vérifie si la valeur entré
 // Vérifie si le format de l'email est valide et correspond au regEx et renvoi un booléen
 function checkEmail() { // crée la fonction qui vérifie si la valeur entrée dans l'input pour l'email est valide
   const emailInput = document.getElementById('email').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
-  const regExMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; // crée un regEx pour définir le format OBLIGATOIRE de l'entrée (ex: monnom@mondomaine.xyz)
+  const regExMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(.?:\[a-zA-Z0-9-]+)*$/; // crée un regEx pour définir le format OBLIGATOIRE de l'entrée (ex: monnom@mondomaine.xyz)
   const $emailErrorMsg = document.querySelector('.emailErrorMsg'); // crée une constante qui selectionne le message d'erreur
   const isEmailValid = regExMail.test(emailInput) // crée une constante qui vérifie le format de l'email inscrit dans l'input email
 
