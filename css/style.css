@@ -101,6 +101,9 @@ main {
   text-transform: capitalize;
   font-size: 1.3rem;
   margin-top: 59px;
+  width: 70%;
+  padding-left: auto;
+  padding-right: auto;
 }
 
 .hero-img img {
@@ -138,8 +141,21 @@ p {
 }
 
 .formData span {
+  position: relative;
+  bottom: 0px;
+  left: 5px;
   color: red;
   font-size: 13px;
+  width: 100%;
+}
+
+.tournamentCityErrorMsg{
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  color: red;
+  font-size: 13px;
+
 }
 
 .hidden {
@@ -279,7 +295,7 @@ display: none;
 
 .modal-body {
   padding: 15px 8%;
-  margin: 15px auto;
+  margin: 15px 0 0;
 }
 
 label {
@@ -398,6 +414,26 @@ input {
   top: 19%;
 }
 
+.cityRadioContainer {
+  display: flex;
+  padding-top: 10px;
+  
+}
+
+
+#city-radios {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 3;
+}
+
+#termsAndConditions {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .close {
   position: absolute;
   right: 25px;
@@ -435,27 +471,41 @@ input {
   color: #fff;
   cursor: pointer;
   display: block;
-  font-size: 1rem;
-  padding: 12px 82px;
+  font-size: 17px;
+  padding-right: auto;
+  padding-left: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .btn-submit {
-  margin-top: 0.5rem;
-  width: 100%;
+  display: block;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  width: 40%;
+
 }
 .text-thank {
 
   color: white;
   position: relative;
   top: 300px;
+  text-align: center;
 
 }
 
 .button-thank{
+  height: 20px;
   width: 40%;
   position: relative;
   top: 80%;
-  left: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  font-size: 15px;
   
 }
 
@@ -615,6 +665,8 @@ input {
   color: #dddddd;
   cursor: pointer;
 }
+
+
 
 @keyframes toast {
   0% {

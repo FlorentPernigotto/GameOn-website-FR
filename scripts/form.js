@@ -18,8 +18,9 @@ function modalDisplay(displayStyle) {
 // crée une fonction qui vérifie si la valeur entrée dans l'input pour le prénom est supérieur a 2 caractères
 function checkFirstName() {
   const firstNameInput = document.getElementById('first').value; // crée une constante qui récupère la valeur entrée par le client dans l'input prénom
+  const regExFirstName = /^[a-zA-Z\- ]+$/;
   const $firstErrorMsg = document.querySelector(".firstErrorMsg"); // crée une constante qui selectionne le message d'erreur
-  const isFirstNameValid = firstNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input prénom
+  const isFirstNameValid = regExFirstName.test(firstNameInput) & firstNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input prénom
 
   if (isFirstNameValid) { // Appelle la constante de validation du prénom dans une booléene
     $firstErrorMsg.classList.add('hidden'); // "Si" elle est vrai alors le message d'erreur reste caché
@@ -46,7 +47,7 @@ function checkLastName() {// crée une fonction qui vérifie si la valeur entré
 // Vérifie si le format de l'email est valide et correspond au regEx et renvoi un booléen
 function checkEmail() { // crée la fonction qui vérifie si la valeur entrée dans l'input pour l'email est valide
   const emailInput = document.getElementById('email').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
-  const regExMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(.?:\[a-zA-Z0-9-]+)*$/; // crée un regEx pour définir le format OBLIGATOIRE de l'entrée (ex: monnom@mondomaine.xyz)
+  const regExMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // crée un regEx pour définir le format OBLIGATOIRE de l'entrée (ex: monnom@mondomaine.xyz)
   const $emailErrorMsg = document.querySelector('.emailErrorMsg'); // crée une constante qui selectionne le message d'erreur
   const isEmailValid = regExMail.test(emailInput) // crée une constante qui vérifie le format de l'email inscrit dans l'input email
 
@@ -61,7 +62,7 @@ function checkEmail() { // crée la fonction qui vérifie si la valeur entrée d
 // Vérifie l'age entrée dans l'input et renvoi un boolèen
 function checkAge() { // crée la fonction qui vérifie l'age entrée dans l'input
   const ageInput = document.getElementById('birthdate').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
-  const regExAge = /(19\d\d|20[0-3])(-\d\d){2}/; // crée une regEx pour définir le format d'entrée de l'age par la date de naissance (DD/MM/AAAA)
+  const regExAge = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/; // crée une regEx pour définir le format d'entrée de l'age par la date de naissance (DD/MM/AAAA)
   const $ageErrorMsg = document.querySelector('.ageErrorMsg'); // crée une constante qui selectionne le message d'erreur
   const isAgeValid = regExAge.test(ageInput); // crée une constante qui vérifie si l'age entrée dans l'input est valide
 
@@ -89,7 +90,7 @@ function checkTournamentCount() { // crée la fonction qui vérifie si la valeur
 
 // Vérifie si un boutton radio a bien été sélectionné et renvoie la réponse dans un boolèen
 function checkTournamentCity() { // crée une fonction qui vérifie si la valeur entrée en input
-  const $cityRadios = document.querySelectorAll('#city-radios .checkbox-input'); // crée une constante qui récupère les check-box sélectionné
+  const $cityRadios = document.querySelectorAll('.formData .checkbox-input'); // crée une constante qui récupère les check-box sélectionné
   const $tournamentCityErrorMsg = document.querySelector('.tournamentCityErrorMsg'); // crée une constante qui récupère le message d'erreur
   let isTournamentCityNumberValid = false; // crée une variable muable en fonction de la boolèen suivante
 
