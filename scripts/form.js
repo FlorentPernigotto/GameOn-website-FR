@@ -19,13 +19,14 @@ function modalDisplay(displayStyle) {
 function checkFirstName() {
   const firstNameInput = document.getElementById('first').value; // crée une constante qui récupère la valeur entrée par le client dans l'input prénom
   const regExFirstName = /^[a-zA-Z\- ]+$/;
+  const borderFirstError = document.getElementById('first');
   const $firstErrorMsg = document.querySelector(".firstErrorMsg"); // crée une constante qui selectionne le message d'erreur
   const isFirstNameValid = regExFirstName.test(firstNameInput) & firstNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input prénom
 
   if (isFirstNameValid) { // Appelle la constante de validation du prénom dans une booléene
-    $firstErrorMsg.classList.add('hidden'); // "Si" elle est vrai alors le message d'erreur reste caché
+    $firstErrorMsg.classList.add('hidden') & borderFirstError.classList.remove('inputError'); // "Si" elle est vrai alors le message d'erreur reste caché
   } else { // "Sinon" 
-    $firstErrorMsg.classList.remove('hidden'); // "Si" elle est fausse alors le message d'erreur s'affiche
+    $firstErrorMsg.classList.remove('hidden') & borderFirstError.classList.add('inputError'); // "Si" elle est fausse alors le message d'erreur s'affiche
   }
   return isFirstNameValid; // Enregistre la réponse a cette fonction dans la constante
 }
@@ -33,13 +34,14 @@ function checkFirstName() {
 function checkLastName() {// crée une fonction qui vérifie si la valeur entrée dans l'input pour le nom est supérieur a 2 caractères
   const lastNameInput = document.getElementById('last').value; // crée une constante qui récupère la valeur entrée par le client dans l'input nom
   const regExLastName = /^[a-zA-Z\- ]+$/;
+  const borderLastError = document.getElementById('last');
   const $lastErrorMsg = document.querySelector('.lastErrorMsg'); // crée une constante qui selectionne le message d'erreur
   const isLastNameValid = regExLastName.test(lastNameInput) & lastNameInput.trim().length >= 2; // crée une constante qui vérifie le nombre de caractère récupéré dans l'input nom
 
   if (isLastNameValid) { // Appelle la constante de validation du nom dans un booléen
-    $lastErrorMsg.classList.add('hidden'); // "Si" elle est vrai alors le message d'erreur reste caché
+    $lastErrorMsg.classList.add('hidden') & borderLastError.classList.remove('inputError'); // "Si" elle est vrai alors le message d'erreur reste caché
   } else { // "Sinon" 
-    $lastErrorMsg.classList.remove('hidden'); // "Si" elle est fausse alors le message d'erreur s'affiche
+    $lastErrorMsg.classList.remove('hidden') & borderLastError.classList.add('inputError'); // "Si" elle est fausse alors le message d'erreur s'affiche
   }
   return isLastNameValid; // Enregistre la réponse à cette fonction
 }
@@ -48,13 +50,14 @@ function checkLastName() {// crée une fonction qui vérifie si la valeur entré
 function checkEmail() { // crée la fonction qui vérifie si la valeur entrée dans l'input pour l'email est valide
   const emailInput = document.getElementById('email').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
   const regExMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // crée un regEx pour définir le format OBLIGATOIRE de l'entrée (ex: monnom@mondomaine.xyz)
+  const borderMailError = document.getElementById('email');  
   const $emailErrorMsg = document.querySelector('.emailErrorMsg'); // crée une constante qui selectionne le message d'erreur
-  const isEmailValid = regExMail.test(emailInput) // crée une constante qui vérifie le format de l'email inscrit dans l'input email
+  const isEmailValid = regExMail.test(emailInput); // crée une constante qui vérifie le format de l'email inscrit dans l'input email
 
   if (isEmailValid) { // Appelle la constante de validation de l'email dans un booléen
-    $emailErrorMsg.classList.add('hidden') // "Si" l'email est valide alors cache le message d'erreur
+    $emailErrorMsg.classList.add('hidden') & borderMailError.classList.remove('inputError'); // "Si" l'email est valide alors cache le message d'erreur
   } else { // "Sinon"
-    $emailErrorMsg.classList.remove('hidden') // "Si" l'email n'est pas valide alors affiche le message d'erreur
+    $emailErrorMsg.classList.remove('hidden') & borderMailError.classList.add('inputError'); // "Si" l'email n'est pas valide alors affiche le message d'erreur
   }
   return isEmailValid // Enregistre la réponse à cette fonction
 }
@@ -63,13 +66,14 @@ function checkEmail() { // crée la fonction qui vérifie si la valeur entrée d
 function checkAge() { // crée la fonction qui vérifie l'age entrée dans l'input
   const ageInput = document.getElementById('birthdate').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
   const regExAge = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/; // crée une regEx pour définir le format d'entrée de l'age par la date de naissance (DD/MM/AAAA)
+  const borderAgeError = document.getElementById('birthdate');
   const $ageErrorMsg = document.querySelector('.ageErrorMsg'); // crée une constante qui selectionne le message d'erreur
   const isAgeValid = regExAge.test(ageInput); // crée une constante qui vérifie si l'age entrée dans l'input est valide
 
   if (isAgeValid) { // Appelle la constante de validation de l'age dans un boolèen
-    $ageErrorMsg.classList.add('hidden'); // "Si" l'age est valide alors cache le message
+    $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError') ; // "Si" l'age est valide alors cache le message
   } else { // "Sinon"
-    $ageErrorMsg.classList.remove('hidden') //"Si" l'age n'est pas valide alors affiche le message
+    $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError') ; //"Si" l'age n'est pas valide alors affiche le message
   }
   return isAgeValid // Enregistre la réponse à cette fonction
 }
@@ -77,13 +81,14 @@ function checkAge() { // crée la fonction qui vérifie l'age entrée dans l'inp
 // Vérifie si la valeur entrée dans l'input et retourne un booléen
 function checkTournamentCount() { // crée la fonction qui vérifie si la valeur entrée en input
   const tournamentInput = document.getElementById('quantity').value; // créer une constante qui récupère la valeur entrée dans l'input
+  const borderTournamentError = document.getElementById('quantity');
   const $tournamentErrorMsg = document.querySelector('.tournamentErrorMsg'); // crée une constante qui selectionne le message d'erreur
   const isTournamentNumberIsValid = tournamentInput.length > 0; //créer une constante qui vérifie si la valeur entrée en input est supérieure a "0" 
 
   if (isTournamentNumberIsValid) { // Appelle la constante de validation du nombre de tournois
-    $tournamentErrorMsg.classList.add('hidden'); // "Si" la valeur entrée est valide alors n'affiche pas le message
+    $tournamentErrorMsg.classList.add('hidden') & borderTournamentError.classList.remove('inputError') ; // "Si" la valeur entrée est valide alors n'affiche pas le message
   } else { // "Sinon"
-    $tournamentErrorMsg.classList.remove('hidden') // "Si" la valeur entrée n'est pas valide alors affiche le message
+    $tournamentErrorMsg.classList.remove('hidden') & borderTournamentError.classList.add('inputError') ; // "Si" la valeur entrée n'est pas valide alors affiche le message
   }
   return isTournamentNumberIsValid // Enregistre la résultat a cette fonction
 }

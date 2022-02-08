@@ -121,7 +121,6 @@ main {
   color: #fe142f;
   padding: 0;
   font-size: 1rem;
-  margin: 60px 0 30px;
   font-weight: bolder;
 }
 
@@ -130,9 +129,9 @@ main {
 }
 
 footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 0 20px;
+  display: flex;
+  margin: 40px 0 45px 0;
+
 }
 
 p {
@@ -160,6 +159,10 @@ p {
 
 .hidden {
   display: none;
+}
+
+.inputError {
+  border: 2px solid #f00;
 }
 
 img {
@@ -495,7 +498,6 @@ input {
   text-align: center;
 
 }
-
 .button-thank{
   height: 20px;
   width: 40%;

@@ -98,10 +98,13 @@
     margin-top: 40px;
     width: 97%;
   }
+  footer {
+    display: flex;
+   justify-content: center;
+  }
   .copyrights {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+    display: flex;
+
   }
 }
   
@@ -151,6 +154,10 @@
     margin-top: 20px;
     width: 97%;
   }
+  footer {
+    display: flex;
+    justify-content: center;
+  }
   .copyrights {
     margin-top: 29px;
     display: block;
@@ -167,5 +174,9 @@
     display: flex;
     justify-content: space-evenly;
     padding-top: 10px;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
   }
 }
