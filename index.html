@@ -80,7 +80,7 @@
                   <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="999999999">
                     <span class="hidden tournamentErrorMsg">Vous devez choisir une option.</span>
                 </div>
-                <label class="cityRadioContainer">Quelles villes ?</label>
+                <label class="cityRadioContainer">A quelle tournois souhaitez-vous participer cette année ?</label>
                   <div class="formData" id="city-radios">
                     <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
                     <label class="checkbox-label" for="location1">
@@ -127,13 +127,13 @@
                     J'ai lu et accepté les conditions d'utilisation.
                   </label>
                   <br>
+                  <span class="hidden termsCheckMsg">Vous devez accepté les conditions d'utilisation</span>
                   <input class="checkbox-input" type="checkbox" id="checkbox2" />
                   <label class="checkbox2-label" for="checkbox2">
                     <span class="checkbox-icon"></span>
                     Je souhaite être prévenu des prochains évènements.
                   </label>
-                  <br>
-                  <span class="hidden termsCheckMsg">Vous devez accepté les conditions d'utilisation</span>
+                  
                 </div>
                 <input id="submit-button" class="btn-submit" type="submit" value="C'est parti" onclick="isFormValid()" />
               </form>
