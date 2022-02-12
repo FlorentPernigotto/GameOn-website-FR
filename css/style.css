@@ -189,6 +189,12 @@ img {
   margin-right: 20px;
 }
 
+.main-navbar span {
+  border-bottom: 5px blue;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .topnav a {
   float: left;
   display: block;
@@ -205,14 +211,12 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-  text-decoration: underline;
 }
 
 .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-  text-decoration: underline;
 }
 
 .topnav .icon {

@@ -37,7 +37,7 @@
     right: 0px;
     display: flex;
     justify-content: center;
-    color: #fff;
+    color: #FE142F;
   }
 
   .topnav.responsive a {
@@ -133,11 +133,11 @@
     display: none;
   }
   .hero-headline {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 600;
     white-space: normal;
     overflow-wrap: break-word;
-    width: 90%;
+    width: 100%;
     text-align: start;
   }
   .hero-text {
