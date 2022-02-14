@@ -189,8 +189,7 @@ img {
   margin-right: 20px;
 }
 
-.main-navbar span {
-  border-bottom: 5px blue;
+.main-navbar span:hover{
   text-decoration: underline;
   text-underline-offset: 3px;
 }
