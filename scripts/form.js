@@ -62,20 +62,34 @@ function checkEmail() { // crée la fonction qui vérifie si la valeur entrée d
   return isEmailValid // Enregistre la réponse à cette fonction
 }
 
-// Vérifie l'age entrée dans l'input et renvoi un boolèen
-function checkAge() { // crée la fonction qui vérifie l'age entrée dans l'input
-  const ageInput = document.getElementById('birthdate').value; // crée une constante qui récupère la valeur entrée par le client dans l'input
-  const regExAge = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/; // crée une regEx pour définir le format d'entrée de l'age par la date de naissance (DD/MM/AAAA)
-  const borderAgeError = document.getElementById('birthdate');
-  const $ageErrorMsg = document.querySelector('.ageErrorMsg'); // crée une constante qui selectionne le message d'erreur
-  const isAgeValid = regExAge.test(ageInput); // crée une constante qui vérifie si l'age entrée dans l'input est valide
+// Vérifie l'age entrée
+function checkAge() {
 
-  if (isAgeValid) { // Appelle la constante de validation de l'age dans un boolèen
-    $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError') ; // "Si" l'age est valide alors cache le message
-  } else { // "Sinon"
-    $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError') ; //"Si" l'age n'est pas valide alors affiche le message
-  }
-  return isAgeValid // Enregistre la réponse à cette fonction
+  let dateInput = document.querySelector("#birthdate").value;
+  const borderAgeError = document.getElementById('birthdate');
+  const $ageErrorMsg = document.querySelector(".ageErrorMsg");
+  const date = new Date(dateInput);
+  const limitYear = 1970;
+  const timeStampDate = Date.parse(date);
+  
+  const actualDate = Date.now();
+  
+    if(timeStampDate > actualDate){
+      $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError');
+    } else {
+      $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
+    }
+    
+    const userDateYear = date.getFullYear();
+    
+    if(userDateYear < limitYear){
+    
+      $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError');
+    } else {
+      $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
+    }
+  
+  return isAgeValid 
 }
 
 // Vérifie si la valeur entrée dans l'input et retourne un booléen

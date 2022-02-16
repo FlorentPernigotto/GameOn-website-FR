@@ -15,7 +15,6 @@ body {
   margin: auto;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -85,9 +84,11 @@ main {
 }
 
 .hero-headline {
+  display: flex;
+
+  width: 180%;
   font-size: 4rem;
   font-weight: normal;
-  white-space: nowrap;
 }
 
 .hero-text {
