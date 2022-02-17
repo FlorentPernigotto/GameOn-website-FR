@@ -71,7 +71,6 @@ function checkAge() {
   const date = new Date(dateInput);
   const limitYear = 1970;
   const timeStampDate = Date.parse(date);
-  const isAgeValid = checkAge;
   const actualDate = Date.now();
   
   if(timeStampDate > actualDate){
@@ -88,8 +87,6 @@ function checkAge() {
   } else {
     $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
   }
-
-  return isAgeValid ;
 
 }
 
