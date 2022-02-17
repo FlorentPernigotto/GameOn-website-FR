@@ -71,25 +71,26 @@ function checkAge() {
   const date = new Date(dateInput);
   const limitYear = 1970;
   const timeStampDate = Date.parse(date);
-  
+  const isAgeValid = checkAge;
   const actualDate = Date.now();
   
-    if(timeStampDate > actualDate){
-      $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError');
-    } else {
-      $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
-    }
-    
-    const userDateYear = date.getFullYear();
-    
-    if(userDateYear < limitYear){
-    
-      $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError');
-    } else {
-      $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
-    }
+  if(timeStampDate > actualDate){
+    $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError');
+  } else {
+    $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
+  }
   
-  return isAgeValid 
+  const userDateYear = date.getFullYear();
+  
+  if(userDateYear < limitYear){
+  
+    $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError');
+  } else {
+    $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
+  }
+
+  return isAgeValid ;
+
 }
 
 // Vérifie si la valeur entrée dans l'input et retourne un booléen
