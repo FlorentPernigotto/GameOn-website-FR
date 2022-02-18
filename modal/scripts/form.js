@@ -69,7 +69,7 @@ function checkAge() {
   const borderAgeError = document.getElementById('birthdate');
   const $ageErrorMsg = document.querySelector(".ageErrorMsg");
   const date = new Date(dateInput);
-  const limitYear = 1970;
+  const limitYear = 2004;
   const timeStampDate = Date.parse(date);
   const actualDate = Date.now();
   
@@ -87,8 +87,7 @@ function checkAge() {
   } else {
     $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
   }
-
-}
+};
 
 // Vérifie si la valeur entrée dans l'input et retourne un booléen
 function checkTournamentCount() { // crée la fonction qui vérifie si la valeur entrée en input
