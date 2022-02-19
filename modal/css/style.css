@@ -156,6 +156,12 @@ p {
 
 }
 
+.termsCheckMsg {
+
+  display: flex;
+  
+
+}
 .hidden {
   display: none;
 }
@@ -437,8 +443,6 @@ input {
 #termsAndConditions {
   display: block;
   position: relative;
-  padding-left: 40px;
-  padding-right: 40px;
 }
 
 .close {
