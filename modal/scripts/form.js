@@ -65,6 +65,7 @@ function checkEmail() { // crée la fonction qui vérifie si la valeur entrée d
 // Vérifie l'age entrée
 function checkAge() {
 
+  const regExDate = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
   let dateInput = document.querySelector("#birthdate").value;
   const borderAgeError = document.getElementById('birthdate');
   const $ageErrorMsg = document.querySelector(".ageErrorMsg");
@@ -72,6 +73,7 @@ function checkAge() {
   const limitYear = 2004;
   const timeStampDate = Date.parse(date);
   const actualDate = Date.now();
+  const isDateValid = regExDate ;
   
   if(timeStampDate > actualDate){
     $ageErrorMsg.classList.add('hidden') & borderAgeError.classList.remove('inputError');
@@ -87,7 +89,8 @@ function checkAge() {
   } else {
     $ageErrorMsg.classList.remove('hidden') & borderAgeError.classList.add('inputError');
   }
-};
+  return isDateValid
+}
 
 // Vérifie si la valeur entrée dans l'input et retourne un booléen
 function checkTournamentCount() { // crée la fonction qui vérifie si la valeur entrée en input
