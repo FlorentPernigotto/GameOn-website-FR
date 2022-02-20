@@ -70,7 +70,7 @@ function checkAge() {
   const borderAgeError = document.getElementById('birthdate');
   const $ageErrorMsg = document.querySelector(".ageErrorMsg");
   const date = new Date(dateInput);
-  const limitYear = 2004;
+  const limitYear = 2020;
   const timeStampDate = Date.parse(date);
   const actualDate = Date.now();
   const isDateValid = regExDate ;
@@ -95,16 +95,29 @@ function checkAge() {
 // Vérifie si la valeur entrée dans l'input et retourne un booléen
 function checkTournamentCount() { // crée la fonction qui vérifie si la valeur entrée en input
   const tournamentInput = document.getElementById('quantity').value; // créer une constante qui récupère la valeur entrée dans l'input
+  const regExTournamentNumber = /^[0-9]*$/;
   const borderTournamentError = document.getElementById('quantity');
   const $tournamentErrorMsg = document.querySelector('.tournamentErrorMsg'); // crée une constante qui selectionne le message d'erreur
-  const isTournamentNumberIsValid = tournamentInput.length > 0; //créer une constante qui vérifie si la valeur entrée en input est supérieure a "0" 
+  
 
+
+  const isTournamentNumberIsValid = regExTournamentNumber.test(tournamentInput) & tournamentInput.length > 0; //créer une constante qui vérifie si la valeur entrée en input est supérieure a "0" 
+  
   if (isTournamentNumberIsValid) { // Appelle la constante de validation du nombre de tournois
     $tournamentErrorMsg.classList.add('hidden') & borderTournamentError.classList.remove('inputError') ; // "Si" la valeur entrée est valide alors n'affiche pas le message
   } else { // "Sinon"
     $tournamentErrorMsg.classList.remove('hidden') & borderTournamentError.classList.add('inputError') ; // "Si" la valeur entrée n'est pas valide alors affiche le message
   }
   return isTournamentNumberIsValid // Enregistre la résultat a cette fonction
+
+  
+}
+
+// Cette fonction bloque les entrées alphabétiques dans la balise input ou le onclick sera présent.
+
+function checkNumber(key) {
+  return (key >= '0' && key <= '9') ||
+    ['ArrowLeft','ArrowRight','Delete','Backspace'].includes(key);
 }
 
 // Vérifie si un boutton radio a bien été sélectionné et renvoie la réponse dans un boolèen
